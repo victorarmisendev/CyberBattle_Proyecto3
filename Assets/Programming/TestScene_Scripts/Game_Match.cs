@@ -34,7 +34,7 @@ public class Game_Match : MonoBehaviour {
 
         InvokeRepeating("InstanceObjective", 3.0f, spawn_Objective);
 
-        Debug.Log(event_method);
+        //Debug.Log(event_method);
 
         EventRandom();
 

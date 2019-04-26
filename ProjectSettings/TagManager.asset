@@ -10,6 +10,7 @@ TagManager:
   - Objective
   - GetGroups
   - Soil
+  - Dead_Space
   layers:
   - Default
   - TransparentFX
