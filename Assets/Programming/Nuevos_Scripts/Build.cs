@@ -17,9 +17,15 @@ public class Build : MonoBehaviour {
     void Update ()
     {
         RaycastHit hit;
-        Ray ray = camera_player.ScreenPointToRay(new Vector3(Screen.width /2 , Screen.height / 2, 1000));
+        Ray ray = new Ray();
 
-        if(Input.GetAxis(gameObject.GetComponent<Movement_Player>().inputs[5]) > 0)
+        if (this.gameObject.name == "Player1")
+            ray = camera_player.ScreenPointToRay(new Vector3((Screen.width / 2) / 2, Screen.height / 2, 1000));
+
+        if (this.gameObject.name == "Player2")
+            ray = camera_player.ScreenPointToRay(new Vector3((Screen.width / 2) + (Screen.width / 2) / 2, Screen.height / 2, 1000));
+
+        if (Input.GetAxis(gameObject.GetComponent<Movement_Player>().inputs[5]) > 0)
         {
             if (Physics.Raycast(ray, out hit))
             {

@@ -804,7 +804,7 @@ GameObject:
   - component: {fileID: 670771422}
   - component: {fileID: 670771423}
   m_Layer: 9
-  m_Name: Player
+  m_Name: Player1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -902,7 +902,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GetGroup: {fileID: 1823744593351400, guid: 803fc4c7bd2c78e41a03d684addd679b, type: 2}
   camera_player: {fileID: 250123537}
-  tipo: 2
+  tipo: 1
 --- !u!114 &670771428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -919,7 +919,7 @@ MonoBehaviour:
   speed_player: 30
   sprint_player: 2
   speed_rotation: 300
-  jumpForce: 290
+  jumpForce: 300
   anim: {fileID: 0}
   PLAYER_IMMOVABLE: 0
   CONTROLLER: 1
@@ -1951,6 +1951,16 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114888482820374584, guid: 798946925cac4c34da13861bfa03cc20,
+        type: 2}
+      propertyPath: tipo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 137310278122272550, guid: 798946925cac4c34da13861bfa03cc20,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1d36613f176238a48ae8e5cff667ccd3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 798946925cac4c34da13861bfa03cc20, type: 2}
   m_IsPrefabAsset: 0
@@ -2031,7 +2041,7 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 00b025d4f9cf45a4aaa7a2e91ad3eb9c, type: 3}
+  - {fileID: 2100000, guid: 35b60d68efbfe0c42aa5a2807a2307fb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

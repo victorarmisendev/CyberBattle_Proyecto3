@@ -30,8 +30,7 @@ public class Shoot_Type : MonoBehaviour {
                 Fire();
                 break;
             case type.Vacio:
-                Vacio();
-                //Debug.Log("Enter");
+                Vacio();            
                 break;
             case type.Planta:
                 Plant();
@@ -44,11 +43,16 @@ public class Shoot_Type : MonoBehaviour {
 
     public void Vacio()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetButton(gameObject.GetComponent<Movement_Player>().inputs[6]))
         {
             RaycastHit hit;
+            Ray ray = new Ray();
 
-            Ray ray = camera_player.ScreenPointToRay(Input.mousePosition);
+            if(this.gameObject.name == "Player1")
+            ray = camera_player.ScreenPointToRay(new Vector3((Screen.width / 2) / 2, Screen.height / 2, 1000));
+
+            if (this.gameObject.name == "Player2")
+            ray = camera_player.ScreenPointToRay(new Vector3((Screen.width / 2) + (Screen.width / 2) / 2, Screen.height / 2, 1000));
 
             if (Physics.Raycast(ray, out hit))
             {

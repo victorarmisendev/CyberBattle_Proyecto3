@@ -98,7 +98,7 @@ public class Game_Manager : MonoBehaviour {
 
             if (timer < 0.0f)
             {
-                for (int i = 0; i < 30; i++)
+                for (int i = 0; i < 15; i++)
                 {
                     int ran_num = Random.Range(0, Game_Manager.Grid_Cube.Capacity);
                     if (Game_Manager.Grid_Cube[ran_num] != null)
