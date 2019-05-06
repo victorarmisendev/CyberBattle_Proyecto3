@@ -31,7 +31,7 @@ public class Game_Manager : MonoBehaviour {
         begin_text[0] = "3";
         begin_text[1] = "2";
         begin_text[2] = "1";
-        begin_text[3] = "GO!!";
+        begin_text[3] = "Fight!";
 
         inputs_player1 = new string[7];
         inputs_player2 = new string[7];
@@ -71,7 +71,7 @@ public class Game_Manager : MonoBehaviour {
         if(players[0] != null)
             live_p1.text = players[0].GetComponent<Player_Stats>().numberOfLives.ToString();
         if(players[1] != null)
-        live_p2.text = players[1].GetComponent<Player_Stats>().numberOfLives.ToString();
+            live_p2.text = players[1].GetComponent<Player_Stats>().numberOfLives.ToString();
 
         if (counter < 4)
         {
@@ -101,11 +101,15 @@ public class Game_Manager : MonoBehaviour {
                 for (int i = 0; i < 15; i++)
                 {
                     int ran_num = Random.Range(0, Game_Manager.Grid_Cube.Capacity);
+
                     if (Game_Manager.Grid_Cube[ran_num] != null)
                     {
                         Game_Manager.Grid_Cube[ran_num].GetComponent<Renderer>().material.color = Color.red;
-                        Game_Manager.Grid_Cube[ran_num].AddComponent<Rigidbody>();
-                        Game_Manager.Grid_Cube[ran_num].GetComponent<Rigidbody>().AddForce(Vector3.forward * 5.0f, ForceMode.Impulse);
+
+                        //Game_Manager.Grid_Cube[ran_num].AddComponent<Rigidbody>();
+                        //Game_Manager.Grid_Cube[ran_num].GetComponent<Rigidbody>().AddForce(Vector3.forward * 50.0f, ForceMode.Impulse);
+                        //Game_Manager.Grid_Cube[ran_num].GetComponent<Rigidbody>().AddForce(Vector3.right * 5.0f, ForceMode.Impulse);
+                        Destroy(Game_Manager.Grid_Cube[ran_num], Random.Range(1.0f, 7.0f));
                     }
                 }
                 timer = 3.0f;

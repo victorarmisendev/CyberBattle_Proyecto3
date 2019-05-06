@@ -50,8 +50,8 @@ public class Game_Grid : MonoBehaviour {
         {
             for (int j = 0; j < columns; j++)
             {
-                Vector3 POS = (esquina + correction) + new Vector3(i * NodeDiameter * 1.05f, 0,
-                    j * NodeDiameter * 1.05f);
+                Vector3 POS = (esquina + correction) + new Vector3(i * NodeDiameter * 1.005f, 0,
+                    j * NodeDiameter * 1.005f);
                 GameObject cube = Instantiate(soil, POS, Quaternion.identity) as GameObject;
                 
                 cube.gameObject.tag = "Soil";
