@@ -98,7 +98,7 @@ public class Game_Manager : MonoBehaviour {
 
             if (timer < 0.0f)
             {
-                for (int i = 0; i < 15; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     int ran_num = Random.Range(0, Game_Manager.Grid_Cube.Capacity);
 
@@ -106,7 +106,7 @@ public class Game_Manager : MonoBehaviour {
                     {
                         Game_Manager.Grid_Cube[ran_num].GetComponent<Renderer>().material.color = Color.red;
 
-                        //Game_Manager.Grid_Cube[ran_num].AddComponent<Rigidbody>();
+                        Game_Manager.Grid_Cube[ran_num].AddComponent<Rigidbody>();
                         //Game_Manager.Grid_Cube[ran_num].GetComponent<Rigidbody>().AddForce(Vector3.forward * 50.0f, ForceMode.Impulse);
                         //Game_Manager.Grid_Cube[ran_num].GetComponent<Rigidbody>().AddForce(Vector3.right * 5.0f, ForceMode.Impulse);
                         Destroy(Game_Manager.Grid_Cube[ran_num], Random.Range(1.0f, 7.0f));

@@ -53,15 +53,15 @@ public class Movement_Player : MonoBehaviour {
             Joy_Right_X += Input.GetAxis(inputs[2]) * Time.deltaTime * speed_rotation;
             Joy_Right_Y += Input.GetAxis(inputs[3]) * Time.deltaTime * speed_rotation;
 
-            Joy_Right_Y = ClampAngle(Joy_Right_Y, -360, 360);
-            Joy_Right_X = ClampAngle(Joy_Right_X, -90, 90);
+            //Joy_Right_Y = ClampAngle(Joy_Right_Y, -90, 90);
+            //Joy_Right_X = ClampAngle(Joy_Right_X, -360, 360);
 
-            Quaternion yAxis = Quaternion.AngleAxis(Joy_Right_Y, Vector3.up);
-            Quaternion xAxis = Quaternion.AngleAxis(Joy_Right_X, Vector3.right);
+            Quaternion yAxis = Quaternion.AngleAxis(Joy_Right_X, Vector3.up);
+            Quaternion xAxis = Quaternion.AngleAxis(Joy_Right_Y, Vector3.up);
 
             transform.localRotation = initial_Rotation /** yAxis*/ * yAxis;
 
-            camera_player.transform.localRotation = I_Cam * xAxis;
+            transform.localRotation =  xAxis;
 
             JumpPlayer(jumpForce);
 
