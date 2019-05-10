@@ -24,14 +24,14 @@ public class Movement_Player : MonoBehaviour {
 
         //inputs = new string[7];
 
-        transform.position += new Vector3(0, 5, 0);
+        //transform.position += new Vector3(0, 5, 0);
 
         initial_Rotation = transform.localRotation;
         I_Cam = transform.localRotation;
         anim = GetComponent<Animator>();
         sprint_player = speed_player * 2;
         originalSpeed = speed_player;
-        crouched = camera_player.transform.position - new Vector3(0, 2, 0);
+        //crouched = camera_player.transform.position - new Vector3(0, 2, 0);
     }
 
     private void FixedUpdate()
