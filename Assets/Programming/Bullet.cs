@@ -7,7 +7,19 @@ public class Bullet : MonoBehaviour {
 
     void Start()
     {
-        //gameObject.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * 55.0f, ForceMode.Impulse);
+        StartCoroutine(init(0.5f));
     }
+
+    IEnumerator init(float s)
+    {
+
+        GetComponent<SphereCollider>().enabled = false;
+
+        yield return new WaitForSeconds(s);
+
+        GetComponent<SphereCollider>().enabled = true;
+
+    }
+
 
 }

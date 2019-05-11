@@ -26,8 +26,35 @@ public class Game_Manager : MonoBehaviour {
 
     public GameObject[] players;
 
+    public bool FlagTime_Mode;
+
+    public GameObject flag;
+
     private void Start()
     {
+
+        //if (FlagTime_Mode)
+        //{
+        //    //Instantiate(flag, Vector3.zero, Quaternion.identity);
+        //    //Get walls
+        //    GameObject[] soils = GameObject.FindGameObjectsWithTag("Soil");
+        //    List<GameObject> walls = new List<GameObject>();
+
+        //    //for (int i = 0; i < soils.Length; i++)
+        //    //{
+        //    //    if (soils[i].transform.eulerAngles != Vector3.zero)
+        //    //    {
+        //    //        walls.Add(soils[i]);
+        //    //        Debug.Log("HELLLLOOOO");
+        //    //    }
+
+        //    //}
+        //    Vector3 flagPosition = new Vector3();
+        //    flagPosition = soils[Random.Range(0, soils.Length - 1)].transform.position;
+        //    Debug.Log(flagPosition + "Hello");
+        //    Instantiate(flag, flagPosition, Quaternion.identity);
+        //}
+
         name_winner = "";
 
         begin_text[0] = "3";
@@ -63,13 +90,15 @@ public class Game_Manager : MonoBehaviour {
         players[0].GetComponent<Movement_Player>().inputs = inputs_player1;
         players[1].GetComponent<Movement_Player>().inputs = inputs_player2;
 
+
+       
     }
 
     private void Update()
     {
 
         GameObject[] p = GameObject.FindGameObjectsWithTag("Player");
-        Debug.Log(p.Length);
+        //Debug.Log(p.Length);
         if(players[0] != null)
             live_p1.text = players[0].GetComponent<Player_Stats>().numberOfLives.ToString();
         if(players[1] != null)
@@ -98,24 +127,29 @@ public class Game_Manager : MonoBehaviour {
         {
             timer -= Time.deltaTime;
 
-            if (timer < 0.0f)
+            if(FlagTime_Mode == false)
             {
-                for (int i = 0; i < numero_falls; i++)
+                if (timer < 0.0f)
                 {
-                    int ran_num = Random.Range(0, Game_Manager.Grid_Cube.Capacity);
-
-                    if (Game_Manager.Grid_Cube[ran_num] != null)
+                    for (int i = 0; i < numero_falls; i++)
                     {
-                        Game_Manager.Grid_Cube[ran_num].GetComponent<Renderer>().material.color = Color.red;
+                        int ran_num = Random.Range(0, Game_Manager.Grid_Cube.Capacity);
 
-                        Game_Manager.Grid_Cube[ran_num].AddComponent<Rigidbody>();
-                        //Game_Manager.Grid_Cube[ran_num].GetComponent<Rigidbody>().AddForce(Vector3.forward * 50.0f, ForceMode.Impulse);
-                        //Game_Manager.Grid_Cube[ran_num].GetComponent<Rigidbody>().AddForce(Vector3.right * 5.0f, ForceMode.Impulse);
-                        Destroy(Game_Manager.Grid_Cube[ran_num], Random.Range(1.0f, 7.0f));
+                        if (Game_Manager.Grid_Cube[ran_num] != null)
+                        {
+                            Game_Manager.Grid_Cube[ran_num].GetComponent<Renderer>().material.color = Color.red;
+
+                            Game_Manager.Grid_Cube[ran_num].AddComponent<Rigidbody>();
+                            //Game_Manager.Grid_Cube[ran_num].GetComponent<Rigidbody>().AddForce(Vector3.forward * 50.0f, ForceMode.Impulse);
+                            //Game_Manager.Grid_Cube[ran_num].GetComponent<Rigidbody>().AddForce(Vector3.right * 5.0f, ForceMode.Impulse);
+                            Destroy(Game_Manager.Grid_Cube[ran_num], Random.Range(1.0f, 7.0f));
+                        }
                     }
+                    timer = 3.0f;
                 }
-                timer = 3.0f;
             }
+
+            
 
             
 

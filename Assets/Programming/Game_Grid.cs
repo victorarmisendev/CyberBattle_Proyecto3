@@ -20,6 +20,11 @@ public class Game_Grid : MonoBehaviour {
     public GameObject jump_it;
     public GameObject column;
 
+    public List<GameObject> cubos = new List<GameObject>();
+    public GameObject[,] cubos_matrix;
+
+    public bool FlagTime, DieMode;
+
     void Start ()
     {
         //Vector3 bounds = gameMap.transform.localScale;
@@ -45,6 +50,8 @@ public class Game_Grid : MonoBehaviour {
         int rows = Mathf.RoundToInt(size.x / NodeDiameter);
         int columns = Mathf.RoundToInt(size.y / NodeDiameter);
 
+        cubos_matrix = new GameObject[rows, columns];
+
         //Debug.Log(rows);
         //Debug.Log(columns);
 
@@ -65,26 +72,35 @@ public class Game_Grid : MonoBehaviour {
                 }
 
                 Game_Manager.Grid_Cube.Add(cube);
+                cubos.Add(cube);
+
+                cubos_matrix[i, j] = cube;
+
 
             }
         }
 
-        GameObject[] cubes = GameObject.FindGameObjectsWithTag("Soil");
-
-        for (int i = 0; i < cubes.Length; i++)
+        if(!FlagTime && !DieMode)
         {
-            int ran1 = Random.Range(0, 5);
-            int ran2 = Random.Range(0, 5);
+            GameObject[] cubes = GameObject.FindGameObjectsWithTag("Soil");
 
-            if(ran1 == ran2)
+            for (int i = 0; i < cubes.Length; i++)
             {
-                if(ran1 < 3)
-                    Instantiate(jump_it, cubes[i].transform.position + new Vector3(0, 3, 0), Quaternion.identity);
-                if(ran1 > 3)
-                    Instantiate(column, cubes[i].transform.position + new Vector3(0, 8, 0), Quaternion.identity);
-            }
+                int ran1 = Random.Range(0, 5);
+                int ran2 = Random.Range(0, 5);
 
+                if (ran1 == ran2)
+                {
+                    if (ran1 < 3)
+                        Instantiate(jump_it, cubes[i].transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+                    if (ran1 > 3)
+                        Instantiate(column, cubes[i].transform.position + new Vector3(0, 8, 0), Quaternion.identity);
+                }
+
+            }
         }
+
+        
 
 
     }

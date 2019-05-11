@@ -47,7 +47,7 @@ public class Shoot_Type : MonoBehaviour {
     {
         if (Input.GetButton(gameObject.GetComponent<Movement_Player>().inputs[6]))
         {
-            RaycastHit hit;
+            //RaycastHit hit;
             //Ray ray = new Ray();
 
             //if(this.gameObject.name == "Player1")
