@@ -22,6 +22,8 @@ public class Game_Manager : MonoBehaviour {
 
     public static List<GameObject> Grid_Cube = new List<GameObject>();
 
+    public int numero_falls;
+
     public GameObject[] players;
 
     private void Start()
@@ -98,7 +100,7 @@ public class Game_Manager : MonoBehaviour {
 
             if (timer < 0.0f)
             {
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < numero_falls; i++)
                 {
                     int ran_num = Random.Range(0, Game_Manager.Grid_Cube.Capacity);
 

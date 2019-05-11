@@ -16,6 +16,10 @@ public class Movement_Player : MonoBehaviour {
     public bool CONTROLLER;
     private float Joy_Right_X = 0, Joy_Right_Y = 0;
     public float h_controller, v_controller;
+    public GameObject personaje;
+
+    private bool iz, de, arriba, abajo;
+
 
     public string[] inputs;
 
@@ -50,22 +54,71 @@ public class Movement_Player : MonoBehaviour {
             h_controller = Input.GetAxis(inputs[0]) * Time.deltaTime;
             v_controller = Input.GetAxis(inputs[1]) * Time.deltaTime;
 
-            Joy_Right_X += Input.GetAxis(inputs[2]) * Time.deltaTime * speed_rotation;
-            Joy_Right_Y += Input.GetAxis(inputs[3]) * Time.deltaTime * speed_rotation;
+            Joy_Right_X = Input.GetAxisRaw(inputs[2]) * Time.deltaTime * speed_rotation;
+            Joy_Right_Y = Input.GetAxisRaw(inputs[3]) * Time.deltaTime * speed_rotation;
 
             //Joy_Right_Y = ClampAngle(Joy_Right_Y, -90, 90);
             //Joy_Right_X = ClampAngle(Joy_Right_X, -360, 360);
 
-            Quaternion yAxis = Quaternion.AngleAxis(Joy_Right_X, Vector3.up);
-            Quaternion xAxis = Quaternion.AngleAxis(Joy_Right_Y, Vector3.up);
+            //Quaternion yAxis = Quaternion.AngleAxis(Joy_Right_X, Vector3.up);
+            //Quaternion xAxis = Quaternion.AngleAxis(Joy_Right_Y, Vector3.up);
 
-            transform.localRotation = initial_Rotation /** yAxis*/ * yAxis;
+            //transform.localRotation = initial_Rotation /** yAxis*/ * yAxis;
 
-            transform.localRotation =  xAxis;
+            //Debug.Log(Joy_Right_X);
+            //Debug.Log(Joy_Right_Y);
+
+            if (Joy_Right_Y > 0)
+            {
+                iz = false;
+                de = true;
+                arriba = false;
+                abajo = false;
+            }
+
+            if (Joy_Right_Y < 0)
+            {
+                iz = true;
+                de = false;
+                arriba = false;
+                abajo = false;
+            }
+
+            if (Joy_Right_X > 0)
+            {
+                iz = false;
+                de = false;
+                arriba = true;
+                abajo = false;
+            }
+
+            if (Joy_Right_X < 0)
+            {
+                iz = false;
+                de = false;
+                arriba = false;
+                abajo = true;
+            }
+
+            if (iz)
+                personaje.transform.eulerAngles = new Vector3(0, -90, 0);
+            if (de)
+                personaje.transform.eulerAngles = new Vector3(0, 90, 0);
+            if (arriba)
+                personaje.transform.eulerAngles = new Vector3(0, 180, 0);
+            if (abajo)
+                personaje.transform.eulerAngles = new Vector3(0, 0, 0);
+
+
 
             JumpPlayer(jumpForce);
 
             transform.Translate(h_controller * speed_player, 0, -v_controller * speed_player);
+
+            //if (v_controller < 0)
+            //{
+            //    transform.Translate(0, 0, -v_controller * speed_player);
+            //}
 
         }
 

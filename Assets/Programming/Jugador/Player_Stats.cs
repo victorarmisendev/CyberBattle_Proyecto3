@@ -56,7 +56,20 @@ public class Player_Stats : MonoBehaviour {
         if(col.gameObject.tag == "Dead_Space")
         {
             this.Die_Direct();
-            transform.position = Vector3.zero + Vector3.up * 1.0f;
+            //Aqui viene el respawn controlado
+            //transform.position = Vector3.zero + Vector3.up * 1.0f;
+            GameObject[] soils = GameObject.FindGameObjectsWithTag("Soil");
+            List<GameObject> white_soils = new List<GameObject>();
+            for (int i = 0; i < soils.Length; i++)
+            {
+                if(soils[i].GetComponent<Renderer>().material.color == Color.white)
+                {
+                    white_soils.Add(soils[i]);
+                }              
+            }
+            GameObject random = white_soils[Random.Range(0, white_soils.Capacity)];
+            Vector3 offset = new Vector3(0, 2, 0);
+            transform.position = random.transform.position + offset;
         }
     }
 

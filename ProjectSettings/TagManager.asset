@@ -11,6 +11,9 @@ TagManager:
   - GetGroups
   - Soil
   - Dead_Space
+  - Shoot
+  - Fuego
+  - Planta
   layers:
   - Default
   - TransparentFX
