@@ -17,6 +17,8 @@ public class Game_Grid : MonoBehaviour {
     //private int rows, columns;
     //public Vector2 size;
     //public float nodeDiameter,nodeDIAM;
+    public GameObject jump_it;
+    public GameObject column;
 
     void Start ()
     {
@@ -66,6 +68,24 @@ public class Game_Grid : MonoBehaviour {
 
             }
         }
+
+        GameObject[] cubes = GameObject.FindGameObjectsWithTag("Soil");
+
+        for (int i = 0; i < cubes.Length; i++)
+        {
+            int ran1 = Random.Range(0, 5);
+            int ran2 = Random.Range(0, 5);
+
+            if(ran1 == ran2)
+            {
+                if(ran1 < 3)
+                    Instantiate(jump_it, cubes[i].transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+                if(ran1 > 3)
+                    Instantiate(column, cubes[i].transform.position + new Vector3(0, 8, 0), Quaternion.identity);
+            }
+
+        }
+
 
     }
 

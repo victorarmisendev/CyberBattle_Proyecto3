@@ -40,7 +40,7 @@ public class Movement_Player : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        Physics.gravity = new Vector3(0, -80, 0);
+        Physics.gravity = new Vector3(0, -150, 0);
     }
 
     void Update ()
