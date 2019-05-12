@@ -45,7 +45,7 @@ public class Shoot_Type : MonoBehaviour {
 
     public void Vacio()
     {
-        if (Input.GetButton(gameObject.GetComponent<Movement_Player>().inputs[6]))
+        if (Input.GetButtonDown(this.GetComponent<Movement_Player>().inputs[6]))
         {
             //RaycastHit hit;
             //Ray ray = new Ray();
@@ -56,7 +56,10 @@ public class Shoot_Type : MonoBehaviour {
             //if (this.gameObject.name == "Player2")
             //ray = camera_player.ScreenPointToRay(new Vector3((Screen.width / 2) + (Screen.width / 2) / 2, Screen.height / 2, 1000));
 
-
+            GameObject copy = Instantiate(bullet, transform.position + transform.forward, Quaternion.identity);
+            copy.GetComponent<Rigidbody>().AddForce(personaje.transform.forward * 50.0f, ForceMode.Impulse);
+            copy.GetComponent<Rigidbody>().AddForce(Vector3.up * 50.0f, ForceMode.Impulse);
+            copy.gameObject.tag = "Vacio";
 
 
 
@@ -72,7 +75,7 @@ public class Shoot_Type : MonoBehaviour {
             //    }
             //}
 
-            
+
         }
         
         
@@ -80,7 +83,7 @@ public class Shoot_Type : MonoBehaviour {
 
     public void Fire()
     {
-        if (Input.GetButton(gameObject.GetComponent<Movement_Player>().inputs[6]))
+        if (Input.GetButtonDown(this.GetComponent<Movement_Player>().inputs[6]))
         {
             //RaycastHit hit;
 
@@ -119,63 +122,79 @@ public class Shoot_Type : MonoBehaviour {
 
     public void Plant()
     {
-        if (Input.GetButton(gameObject.GetComponent<Movement_Player>().inputs[6]))
+        if (Input.GetButtonDown(this.GetComponent<Movement_Player>().inputs[6]))
         {
-            RaycastHit hit;
 
-            Ray ray = camera_player.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 50));
 
-            if (Physics.Raycast(ray, out hit))
-            {
-                Collider[] hitColliders = Physics.OverlapSphere(hit.collider.gameObject.transform.position, 10.0f);
 
-                for (int i = 0; i < hitColliders.Length; i++)
-                {
-                    if (hit.collider.gameObject.transform.position != null && hitColliders[i].gameObject
-                    .GetComponent<Renderer>() != null)
-                    {
-                        hitColliders[i].gameObject.GetComponent<Renderer>().material.color = Color.green;
 
-                        //EXTRA
-                        hitColliders[i].gameObject.AddComponent<E_Plant>();
+            GameObject copy = Instantiate(bullet, transform.position + transform.forward, Quaternion.identity);
+            copy.GetComponent<Rigidbody>().AddForce(personaje.transform.forward * 50.0f, ForceMode.Impulse);
+            copy.GetComponent<Rigidbody>().AddForce(Vector3.up * 50.0f, ForceMode.Impulse);
+            copy.gameObject.tag = "Planta";
 
-                    }
-                }
+            //RaycastHit hit;
 
-                //}
+            //Ray ray = camera_player.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 50));
 
-            }
+            //if (Physics.Raycast(ray, out hit))
+            //{
+            //    Collider[] hitColliders = Physics.OverlapSphere(hit.collider.gameObject.transform.position, 10.0f);
+
+            //    for (int i = 0; i < hitColliders.Length; i++)
+            //    {
+            //        if (hit.collider.gameObject.transform.position != null && hitColliders[i].gameObject
+            //        .GetComponent<Renderer>() != null)
+            //        {
+            //            hitColliders[i].gameObject.GetComponent<Renderer>().material.color = Color.green;
+
+            //            //EXTRA
+            //            hitColliders[i].gameObject.AddComponent<E_Plant>();
+
+            //        }
+            //    }
+
+            //}
+
+            //}
         }
     }
 
     public void Bounce()
     {
-        if (Input.GetButton(gameObject.GetComponent<Movement_Player>().inputs[6]))
+        if (Input.GetButtonDown(this.GetComponent<Movement_Player>().inputs[6]))
         {
-            RaycastHit hit;
 
-            Ray ray = camera_player.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 50));
 
-            if (Physics.Raycast(ray, out hit))
-            {
-                Collider[] hitColliders = Physics.OverlapSphere(hit.collider.gameObject.transform.position, 5.0f);
+            GameObject copy = Instantiate(bullet, transform.position + transform.forward, Quaternion.identity);
+            copy.GetComponent<Rigidbody>().AddForce(personaje.transform.forward * 50.0f, ForceMode.Impulse);
+            copy.GetComponent<Rigidbody>().AddForce(Vector3.up * 50.0f, ForceMode.Impulse);
+            copy.gameObject.tag = "Bote";
 
-                for (int i = 0; i < hitColliders.Length; i++)
-                {
-                    if (hit.collider.gameObject.transform.position != null && hitColliders[i].gameObject
-                    .GetComponent<Renderer>() != null)
-                    {
-                        hitColliders[i].gameObject.GetComponent<Renderer>().material.color = Color.magenta;
+            //RaycastHit hit;
 
-                        //EXTRA
-                        hitColliders[i].gameObject.AddComponent<Bounce>();
+            //Ray ray = camera_player.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 50));
 
-                    }
-                }
+            //if (Physics.Raycast(ray, out hit))
+            //{
+            //    Collider[] hitColliders = Physics.OverlapSphere(hit.collider.gameObject.transform.position, 5.0f);
 
-                //}
+            //    for (int i = 0; i < hitColliders.Length; i++)
+            //    {
+            //        if (hit.collider.gameObject.transform.position != null && hitColliders[i].gameObject
+            //        .GetComponent<Renderer>() != null)
+            //        {
+            //            hitColliders[i].gameObject.GetComponent<Renderer>().material.color = Color.magenta;
 
-            }
+            //            //EXTRA
+            //            hitColliders[i].gameObject.AddComponent<Bounce>();
+
+            //        }
+            //    }
+
+            //    //}
+
+            //}
         }
     }
 

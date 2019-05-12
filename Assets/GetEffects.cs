@@ -24,8 +24,9 @@ public class GetEffects : MonoBehaviour {
 
         if (col.gameObject.tag == "Planta" && gameObject.tag == "Soil")
         {
-            gameObject.AddComponent<E_Plant>();
+          
             gameObject.GetComponent<Renderer>().material.color = Color.green;
+            gameObject.AddComponent<E_Plant>();
         }
 
         if (col.gameObject.tag == "Bote" && gameObject.tag == "Soil")

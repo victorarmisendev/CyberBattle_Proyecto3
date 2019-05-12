@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class E_Plant : MonoBehaviour {
 
-    private float timer = 7.0f;
+    private float timer = 4.0f;
     private bool aux = false;
 
     void Update()
@@ -13,8 +13,7 @@ public class E_Plant : MonoBehaviour {
 
         if (timer <= 0)
         {
-            aux = true;
-            Destroy(this,0.1f);          
+            Destroy(this);          
         }
 
     }
@@ -23,22 +22,17 @@ public class E_Plant : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player")
         {
-            //if(aux == true)
-            //{
-            //    collision.gameObject.GetComponent<Movement_Player>().PLAYER_IMMOVABLE = false;
-            //} else
-            //{
-            //    collision.gameObject.GetComponent<Movement_Player>().PLAYER_IMMOVABLE = true;
-            //}
+            collision.gameObject.GetComponent<Movement_Player>().speed_player = 10;
 
-            if(collision.gameObject.GetComponent<Movement_Player>().v_controller < 0)
-            {
-                collision.gameObject.transform.position += Vector3.up * 2.0f * Time.deltaTime;
-            }
-           
         }
         
     }
+
+    void OnCollisionExit(Collision col)
+    {
+        col.gameObject.GetComponent<Movement_Player>().speed_player = 30;
+    }
+
 
 
 }

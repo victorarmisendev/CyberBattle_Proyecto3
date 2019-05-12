@@ -14,6 +14,8 @@ TagManager:
   - Shoot
   - Fuego
   - Planta
+  - Bote
+  - Vacio
   layers:
   - Default
   - TransparentFX

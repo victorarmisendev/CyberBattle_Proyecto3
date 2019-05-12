@@ -18,6 +18,8 @@ public class Movement_Player : MonoBehaviour {
     public float h_controller, v_controller;
     public GameObject personaje;
 
+    public bool plant = false;
+
     private bool iz, de, arriba, abajo;
 
 
@@ -51,8 +53,18 @@ public class Movement_Player : MonoBehaviour {
             //Make the movement with the controller here
 
             //Joy left:  Movement
-            h_controller = Input.GetAxis(inputs[0]) * Time.deltaTime;
-            v_controller = Input.GetAxis(inputs[1]) * Time.deltaTime;
+            //h_controller = Input.GetAxis(inputs[0]) * Time.deltaTime;
+            //v_controller = Input.GetAxis(inputs[1]) * Time.deltaTime;
+
+            if (PLAYER_IMMOVABLE)
+            {
+                h_controller = 0.0f;
+                v_controller = 0.0f;
+            } else
+            {
+                h_controller = Input.GetAxis(inputs[0]) * Time.deltaTime;
+                v_controller = Input.GetAxis(inputs[1]) * Time.deltaTime;
+            }
 
             Joy_Right_X = Input.GetAxisRaw(inputs[2]) * Time.deltaTime * speed_rotation;
             Joy_Right_Y = Input.GetAxisRaw(inputs[3]) * Time.deltaTime * speed_rotation;
