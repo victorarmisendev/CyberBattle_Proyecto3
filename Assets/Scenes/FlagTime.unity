@@ -1279,6 +1279,7 @@ MonoBehaviour:
   h_controller: 0
   v_controller: 0
   personaje: {fileID: 631031172}
+  plant: 0
   inputs: []
 --- !u!4 &692467541
 Transform:
@@ -3620,6 +3621,7 @@ MonoBehaviour:
   h_controller: 0
   v_controller: 0
   personaje: {fileID: 2050228212}
+  plant: 0
   inputs: []
 --- !u!4 &1827767553
 Transform:
@@ -4477,9 +4479,9 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2144726387}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: a061b9c9dc6b5574485122ab99abe634, type: 2}
+  profile: {fileID: 11400000, guid: 3eaec18a4fc95934a9adbae24013fa9a, type: 2}

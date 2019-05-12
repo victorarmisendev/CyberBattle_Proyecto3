@@ -9,6 +9,9 @@ public class Player_Stats : MonoBehaviour {
     //Kills give 1 point
     public float live;
     public int numberOfLives = 3;
+    float timer = 5.0f;
+
+    private bool dead = false;
 
     void Start()
     {
@@ -20,10 +23,14 @@ public class Player_Stats : MonoBehaviour {
     {
         Die();
 
+        HasMuerto();
+
         live = Mathf.Clamp(live, 0, 100);
 
+        Points();
+
         //If player lives are equal to 0, lose the game, destroy player.
-        if(numberOfLives == 0)
+        if (numberOfLives == 0)
         {
             Destroy(this.gameObject);
         }
@@ -38,8 +45,13 @@ public class Player_Stats : MonoBehaviour {
 
     void Points()
     {
-        this.points = Time.time; // Points 
-        //this.points = //Kills ni dea ahora miramos
+
+        if(!dead)
+        {
+            this.points = Time.time; // Points 
+            //this.points = //Kills ni dea ahora miramos
+        }
+
 
     }
 
@@ -53,32 +65,56 @@ public class Player_Stats : MonoBehaviour {
         }
     }
 
+    void HasMuerto()
+    {
+        if(dead)
+        {
+            timer -= Time.deltaTime;
+
+            transform.position = Vector3.zero;
+
+
+            if (timer <= 0)
+            {
+                this.Die_Direct();
+                //Aqui viene el respawn controlado
+                //transform.position = Vector3.zero + Vector3.up * 1.0f;
+                GameObject[] soils = GameObject.FindGameObjectsWithTag("Soil");
+                List<GameObject> white_soils = new List<GameObject>();
+                for (int i = 0; i < soils.Length; i++)
+                {
+                    if (soils[i].GetComponent<Renderer>().material.color == Color.white)
+                    {
+                        white_soils.Add(soils[i]);
+                    }
+                }
+                GameObject random = white_soils[Random.Range(0, white_soils.Capacity)];
+                Vector3 offset = new Vector3(0, 2, 0);
+                transform.position = random.transform.position + offset;
+
+                dead = false;
+
+            }
+            
+
+           
+        }
+    }
+
     void Die_Direct()
     {
         numberOfLives--;
+        //StartCoroutine(esperaPorMorir(5.0f));
     }
 
     void OnTriggerEnter(Collider col)
     {
         if(col.gameObject.tag == "Dead_Space")
         {
-            this.Die_Direct();
-            //Aqui viene el respawn controlado
-            //transform.position = Vector3.zero + Vector3.up * 1.0f;
-            GameObject[] soils = GameObject.FindGameObjectsWithTag("Soil");
-            List<GameObject> white_soils = new List<GameObject>();
-            for (int i = 0; i < soils.Length; i++)
-            {
-                if(soils[i].GetComponent<Renderer>().material.color == Color.white)
-                {
-                    white_soils.Add(soils[i]);
-                }              
-            }
-            GameObject random = white_soils[Random.Range(0, white_soils.Capacity)];
-            Vector3 offset = new Vector3(0, 2, 0);
-            transform.position = random.transform.position + offset;
+            dead = true;
         }
     }
+
 
 
 
