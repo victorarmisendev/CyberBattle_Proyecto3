@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 54749209906398010}
   m_Layer: 0
   m_Name: Jump_It
-  m_TagString: Soil
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1997405525937200}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.17, y: 13.54, z: 70.12}
-  m_LocalScale: {x: 10, y: 5.7888, z: 10}
+  m_LocalPosition: {x: -94.168, y: 134.95312, z: 57.051228}
+  m_LocalScale: {x: 13, y: 5.7888, z: 13}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -58,7 +58,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ada2c0971bb1f834bbfbde6fb7fe178e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
