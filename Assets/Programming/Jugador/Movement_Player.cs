@@ -48,14 +48,14 @@ public class Movement_Player : MonoBehaviour {
     void Update ()
     {
 
-        if(CONTROLLER)
+        if (CONTROLLER)
         {
             //Make the movement with the controller here
 
             //Joy left:  Movement
             //h_controller = Input.GetAxis(inputs[0]) * Time.deltaTime;
             //v_controller = Input.GetAxis(inputs[1]) * Time.deltaTime;
-
+           
             if (PLAYER_IMMOVABLE)
             {
                 h_controller = 0.0f;
@@ -112,6 +112,8 @@ public class Movement_Player : MonoBehaviour {
                 abajo = true;
             }
 
+            
+
             if (iz)
                 personaje.transform.eulerAngles = new Vector3(0, -90, 0);
             if (de)
@@ -125,7 +127,10 @@ public class Movement_Player : MonoBehaviour {
 
             JumpPlayer(jumpForce);
 
-            transform.Translate(h_controller * speed_player, 0, -v_controller * speed_player);
+            //transform.Translate(h_controller * speed_player, 0, -v_controller * speed_player);
+
+
+            transform.position += new Vector3(h_controller * speed_player, 0, -v_controller * speed_player);
 
             //if (v_controller < 0)
             //{
@@ -145,15 +150,7 @@ public class Movement_Player : MonoBehaviour {
                 v = 0.0f;
             }
 
-            if (v > 0)
-            {
-                anim.Play("Walking");
-            }
-            else
-            {
-                anim.Play("Idle");
-            }
-
+          
             mouseX += Input.GetAxis("Mouse X");
 
             mouseY += Input.GetAxis("Mouse Y");
