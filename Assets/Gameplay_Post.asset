@@ -54,9 +54,9 @@ MonoBehaviour:
     m_Settings:
       reflection:
         blendType: 0
-        reflectionQuality: 2
-        maxDistance: 100
-        iterationCount: 256
+        reflectionQuality: 0
+        maxDistance: 77
+        iterationCount: 320
         stepSize: 3
         widthModifier: 0.5
         reflectionBlur: 1
