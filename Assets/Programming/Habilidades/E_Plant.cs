@@ -23,14 +23,17 @@ public class E_Plant : MonoBehaviour {
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<Movement_Player>().speed_player = 10;
-
         }
         
     }
 
-    void OnCollisionExit(Collision col)
+    void OnCollisionExit(Collision collision)
     {
-        col.gameObject.GetComponent<Movement_Player>().speed_player = 30;
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<Movement_Player>().speed_player = 30;
+        }
+       
     }
 
 

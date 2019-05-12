@@ -16,6 +16,11 @@ public class Bounce : MonoBehaviour
     }
 
 
+    void OnCollisionExit(Collision col)
+    {
+        col.gameObject.GetComponent<Movement_Player>().speed_player = 30;
+    }
+
 
 
 
