@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player_Stats : MonoBehaviour {
 
-    public int points;
+    public float points;
     //Objectives gives 5 points 
     //Kills give 1 point
     public float live;
@@ -34,6 +34,13 @@ public class Player_Stats : MonoBehaviour {
     public void GetDamage(float damage)
     {
         live -= damage;
+    }
+
+    void Points()
+    {
+        this.points = Time.time; // Points 
+        //this.points = //Kills ni dea ahora miramos
+
     }
 
     void Die()
