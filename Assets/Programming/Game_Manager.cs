@@ -171,7 +171,7 @@ public class Game_Manager : MonoBehaviour {
                 //Go to the winner scene
                 name_winner = p[0].name;
                 p[0].GetComponent<Player_Stats>().points += 1000.0f;
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(5);
 
             }
             

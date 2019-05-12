@@ -10,6 +10,7 @@ public class Player_Stats : MonoBehaviour {
     public float live;
     public int numberOfLives = 3;
     float timer = 5.0f;
+    public Transform position_extern;
 
     private bool dead = false;
 
@@ -71,7 +72,7 @@ public class Player_Stats : MonoBehaviour {
         {
             timer -= Time.deltaTime;
 
-            transform.position = Vector3.zero;
+            transform.position = position_extern.position;
 
 
             if (timer <= 0)

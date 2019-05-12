@@ -9,7 +9,8 @@ public class Ranking : MonoBehaviour {
 
 	void Start ()
     {
-        text.text = Game_Manager.name_winner;
+        text.text = Game_Manager.name_winner + " Wins!!";
+        
     }
 	
 
