@@ -22,6 +22,8 @@ public class Movement_Player : MonoBehaviour {
 
     private bool iz, de, arriba, abajo;
 
+    private bool jump_ = false;
+
 
     public string[] inputs;
 
@@ -176,7 +178,7 @@ public class Movement_Player : MonoBehaviour {
 
             Sprint();
 
-            Dash(25);
+            //Dash(25);
 
         }
         
@@ -198,7 +200,8 @@ public class Movement_Player : MonoBehaviour {
         if(CONTROLLER)
         {
             //Debug.Log(inputs[4]);
-            if (Input.GetButtonDown(inputs[4]))
+            Debug.Log(jump_);
+            if (Input.GetButtonDown(inputs[4]) && jump_)
                 this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, JumpForce, 0));
         }
         else
@@ -221,16 +224,16 @@ public class Movement_Player : MonoBehaviour {
         }
     }
 
-    void Dash(float impulse)
-    {
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            gameObject.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * impulse, ForceMode.Impulse);
-            //camera_player.fieldOfView = 90;
-        } 
+    //void Dash(float impulse)
+    //{
+    //    if(Input.GetKeyDown(KeyCode.E))
+    //    {
+    //        gameObject.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * impulse, ForceMode.Impulse);
+    //        //camera_player.fieldOfView = 90;
+    //    } 
 
 
-    }
+    //}
 
     //void Crouch()
     //{
@@ -255,6 +258,24 @@ public class Movement_Player : MonoBehaviour {
             }
         }
         return Mathf.Clamp(angle, min, max);
+    }
+
+
+    void OnCollisionStay(Collision col)
+    {
+        if(col.gameObject.tag == "Soil")
+        {
+            jump_ = true;
+        } 
+    }
+
+
+    void OnCollisionExit(Collision col)
+    {
+        if(jump_)
+        {
+            jump_ = false;
+        }
     }
 
 
