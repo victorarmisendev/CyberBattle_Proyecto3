@@ -4,23 +4,4 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/MainMenuScene.unity
-    guid: 6f162ec2010f3804dbe6d408ff172e45
-  - enabled: 1
-    path: Assets/Scenes/GameMode_Selection.unity
-    guid: 543ca779ebee49345b3edb16dcede9f6
-  - enabled: 1
-    path: Assets/Scenes/BattleRoyale.unity
-    guid: 1801b731175d06b49862dd0d80e5df48
-  - enabled: 1
-    path: Assets/Scenes/FlagTime.unity
-    guid: aedae5d79dd46854e81c67f3fcb6c657
-  - enabled: 1
-    path: Assets/Scenes/DieMode.unity
-    guid: 2f9113175ea3a0944b45218535150dc5
-  - enabled: 1
-    path: Assets/Scenes/ranking.unity
-    guid: a830a765121f95943a7f6ea83ca5bd2a
-  m_configObjects: {}
+  m_Scenes: []

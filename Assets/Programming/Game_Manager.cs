@@ -28,7 +28,7 @@ public class Game_Manager : MonoBehaviour {
 
     public bool FlagTime_Mode;
 
-    public GameObject flag;
+    public GameObject flag, particles_tierra, particles_seguir;
 
     public Text points1, points2;
 
@@ -147,11 +147,26 @@ public class Game_Manager : MonoBehaviour {
 
                         if (Game_Manager.Grid_Cube[ran_num] != null)
                         {
+                            //Explosion: No loop
+                            GameObject particle = Instantiate(particles_tierra, Game_Manager.Grid_Cube[ran_num].transform.position, Quaternion.identity);
+                            particle.transform.SetParent(Game_Manager.Grid_Cube[ran_num].transform);
+                            particle.transform.localScale = new Vector3(10, 10, 10);
+                            //Humo: Loop
+                            GameObject particle2 = Instantiate(particles_seguir, Game_Manager.Grid_Cube[ran_num].transform.position, Quaternion.identity);
+                            particle2.transform.SetParent(Game_Manager.Grid_Cube[ran_num].transform);
+                            particle2.transform.localScale = new Vector3(5, 5, 5);
+                           
+                            Destroy(particle, 5.0f);
+                            Destroy(particle2, 7.0f);
+
                             Game_Manager.Grid_Cube[ran_num].GetComponent<Renderer>().material.color = Color.red;
 
                             Game_Manager.Grid_Cube[ran_num].AddComponent<Rigidbody>();
                             //Game_Manager.Grid_Cube[ran_num].GetComponent<Rigidbody>().AddForce(Vector3.forward * 50.0f, ForceMode.Impulse);
                             //Game_Manager.Grid_Cube[ran_num].GetComponent<Rigidbody>().AddForce(Vector3.right * 5.0f, ForceMode.Impulse);
+
+
+
                             Destroy(Game_Manager.Grid_Cube[ran_num], Random.Range(1.0f, 7.0f));
                         }
                     }

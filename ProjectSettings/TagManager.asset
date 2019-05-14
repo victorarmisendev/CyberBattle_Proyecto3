@@ -4,18 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Shootable
+  - Dead_Space
   - Simulation
-  - GameControl
   - MainLight
-  - Objective
   - GetGroups
   - Soil
-  - Dead_Space
-  - Shoot
-  - Fuego
-  - Planta
-  - Bote
-  - Vacio
   layers:
   - Default
   - TransparentFX
@@ -25,9 +19,9 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
-  - 
-  - 
+  - Lighting
+  - Ground
+  - Postprocessing
   - 
   - 
   - 
@@ -50,6 +44,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Fire
+    uniqueID: 3804908061
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
