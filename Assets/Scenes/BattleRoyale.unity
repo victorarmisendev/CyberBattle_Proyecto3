@@ -10228,7 +10228,7 @@ MonoBehaviour:
   - {fileID: 1157055831118640, guid: 0bde4005463d40f41a78368e7579576e, type: 2}
   camera_player: {fileID: 0}
   personaje: {fileID: 704889689}
-  tipo: 0
+  tipo: 1
 --- !u!114 &606785887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13187,7 +13187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.031219006, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.06542587, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -13526,7 +13526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.028497245, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.038367633, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
