@@ -39,7 +39,7 @@ public class Game_Grid : MonoBehaviour {
 
         NODEDIAM = NodeDiameter;
 
-        soil.transform.localScale = new Vector3(NodeDiameter, 1, NodeDiameter);
+        soil.transform.localScale = new Vector3(NodeDiameter, 10, NodeDiameter);
 
         Vector3 esquina = transform.position - Vector3.right * (size.x / 2) - Vector3.forward * (size.y / 2);
         Vector3 correction = new Vector3(nodeRadius, 0, nodeRadius);
@@ -79,6 +79,8 @@ public class Game_Grid : MonoBehaviour {
 
             }
         }
+
+        //gameObject.transform.Translate(Vector3.up * -1);
 
         if(!FlagTime && !DieMode)
         {

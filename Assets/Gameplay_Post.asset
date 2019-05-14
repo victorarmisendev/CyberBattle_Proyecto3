@@ -29,7 +29,7 @@ MonoBehaviour:
     m_Settings:
       excludeSkybox: 1
   antialiasing:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       method: 0
       fxaaSettings:
@@ -55,29 +55,29 @@ MonoBehaviour:
       reflection:
         blendType: 0
         reflectionQuality: 0
-        maxDistance: 77
-        iterationCount: 320
-        stepSize: 3
-        widthModifier: 0.5
-        reflectionBlur: 1
-        reflectBackfaces: 0
+        maxDistance: 42
+        iterationCount: 251
+        stepSize: 9
+        widthModifier: 2.95
+        reflectionBlur: 5.34
+        reflectBackfaces: 1
       intensity:
-        reflectionMultiplier: 1
-        fadeDistance: 100
+        reflectionMultiplier: 0.65
+        fadeDistance: 531
         fresnelFade: 1
-        fresnelFadePower: 1
+        fresnelFadePower: 2.43
       screenEdgeMask:
         intensity: 0.03
   depthOfField:
     m_Enabled: 0
     m_Settings:
-      focusDistance: 0.36
-      aperture: 22.1
-      focalLength: 67
-      useCameraFov: 0
+      focusDistance: 0.53
+      aperture: 5.1
+      focalLength: 10
+      useCameraFov: 1
       kernelSize: 3
   motionBlur:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       shutterAngle: 270
       sampleCount: 10
@@ -100,8 +100,8 @@ MonoBehaviour:
     m_Enabled: 0
     m_Settings:
       bloom:
-        intensity: 0.03
-        threshold: 1.1
+        intensity: 1.4
+        threshold: 3.12
         softKnee: 0.5
         radius: 5.56
         antiFlicker: 0
@@ -308,7 +308,7 @@ MonoBehaviour:
     m_Enabled: 1
     m_Settings:
       spectralTexture: {fileID: 0}
-      intensity: 0.45
+      intensity: 0.265
   grain:
     m_Enabled: 1
     m_Settings:

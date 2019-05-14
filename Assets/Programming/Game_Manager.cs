@@ -154,8 +154,8 @@ public class Game_Manager : MonoBehaviour {
                             //Humo: Loop
                             GameObject particle2 = Instantiate(particles_seguir, Game_Manager.Grid_Cube[ran_num].transform.position, Quaternion.identity);
                             particle2.transform.SetParent(Game_Manager.Grid_Cube[ran_num].transform);
-                            particle2.transform.localScale = new Vector3(5, 5, 5);
-                           
+                            particle2.transform.localScale = new Vector3(3, 3, 3);
+
                             Destroy(particle, 5.0f);
                             Destroy(particle2, 7.0f);
 
