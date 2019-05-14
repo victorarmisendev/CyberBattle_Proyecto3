@@ -355,7 +355,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 3
+    axis: 4
     joyNum: 1
   - serializedVersion: 3
     m_Name: JoyX_Right_P2
@@ -371,7 +371,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 3
+    axis: 4
     joyNum: 2
   - serializedVersion: 3
     m_Name: JoyY_Right_P1
@@ -387,7 +387,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 4
+    axis: 3
     joyNum: 1
   - serializedVersion: 3
     m_Name: JoyY_Right_P2
@@ -403,7 +403,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 4
+    axis: 3
     joyNum: 2
   - serializedVersion: 3
     m_Name: A_P1

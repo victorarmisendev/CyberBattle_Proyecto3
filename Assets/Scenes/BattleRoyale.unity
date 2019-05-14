@@ -5331,7 +5331,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 1
+  m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -5421,8 +5421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: 0
   live: 100
-  numberOfLives: 3
-  position_extern: {fileID: 1077137396}
+  numberOfLives: 10
 --- !u!65 &371752732
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5547,7 +5546,7 @@ Transform:
   - {fileID: 2117629167}
   - {fileID: 319428536}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &395983236
 Prefab:
@@ -10145,8 +10144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: 0
   live: 100
-  numberOfLives: 3
-  position_extern: {fileID: 1077137396}
+  numberOfLives: 10
 --- !u!65 &606785882
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10569,8 +10567,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1000, y: 345.8638, z: 1000}
-  m_Center: {x: 0, y: 148.6119, z: 0}
+  m_Size: {x: 1000, y: 467.4346, z: 1000}
+  m_Center: {x: 0, y: 87.82649, z: 0}
 --- !u!4 &726275534
 Transform:
   m_ObjectHideFlags: 0
@@ -10582,7 +10580,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &745602510
 GameObject:
@@ -10968,7 +10966,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &970169276
 GameObject:
@@ -11090,7 +11088,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1010738706
 GameObject:
@@ -11292,7 +11290,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1099152529
 GameObject:
@@ -11725,7 +11723,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1210989376
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12339,7 +12337,7 @@ MonoBehaviour:
   - 
   - 
   - 
-  numero_falls: 4
+  numero_falls: 0
   players:
   - {fileID: 371752730}
   - {fileID: 606785880}
@@ -13169,7 +13167,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1915041582}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -13197,8 +13195,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 4054bfbd22f219846b2ed9491fce7185, type: 3}
-    m_FontSize: 30
+    m_Font: {fileID: 12800000, guid: 7cb2912222469634ba17a77055919ea8, type: 3}
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -13393,7 +13391,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2026058984
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13508,7 +13506,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2037868994}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -13536,8 +13534,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 4054bfbd22f219846b2ed9491fce7185, type: 3}
-    m_FontSize: 30
+    m_Font: {fileID: 12800000, guid: 7cb2912222469634ba17a77055919ea8, type: 3}
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -13848,8 +13846,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.01
-  far clip plane: 1824.81
+  near clip plane: 1
+  far clip plane: 1200
   field of view: 60
   orthographic: 0
   orthographic size: 151.9

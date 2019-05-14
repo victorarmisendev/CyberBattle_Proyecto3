@@ -103,14 +103,14 @@ public class Game_Manager : MonoBehaviour {
         //Debug.Log(p.Length);
         if(players[0] != null)
         {
-            points1.text = "Points: " + players[0].GetComponent<Player_Stats>().points.ToString();
-            live_p1.text = "Live " + players[0].GetComponent<Player_Stats>().numberOfLives.ToString();
+            //points1.text = "Points: " + players[0].GetComponent<Player_Stats>().points.ToString();
+            live_p1.text = "Player1 Lives: " + players[0].GetComponent<Player_Stats>().numberOfLives.ToString();
         }
             
         if(players[1] != null)
         {
-            points2.text = "Points: " + players[1].GetComponent<Player_Stats>().points.ToString();
-            live_p2.text = "Live " + players[1].GetComponent<Player_Stats>().numberOfLives.ToString();
+            //points2.text = "Points: " + players[1].GetComponent<Player_Stats>().points.ToString();
+            live_p2.text = "Player2 Lives: " + players[1].GetComponent<Player_Stats>().numberOfLives.ToString();
         }
             
 
