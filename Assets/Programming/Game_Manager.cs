@@ -159,7 +159,7 @@ public class Game_Manager : MonoBehaviour {
                             Destroy(particle, 5.0f);
                             Destroy(particle2, 7.0f);
 
-                            Game_Manager.Grid_Cube[ran_num].GetComponent<Renderer>().material.color = Color.red;
+                            Game_Manager.Grid_Cube[ran_num].GetComponent<Renderer>().material.color = Color.yellow;
 
                             Game_Manager.Grid_Cube[ran_num].AddComponent<Rigidbody>();
                             //Game_Manager.Grid_Cube[ran_num].GetComponent<Rigidbody>().AddForce(Vector3.forward * 50.0f, ForceMode.Impulse);
