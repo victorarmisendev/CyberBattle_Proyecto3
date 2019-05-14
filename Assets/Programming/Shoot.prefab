@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 135527115036442298}
   m_Layer: 0
   m_Name: Shoot
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,8 +38,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1740130768818478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -60.759014, y: 48.438183, z: -11.754822}
+  m_LocalScale: {x: 2.2696733, y: 2.2696733, z: 2.2696733}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -59,7 +59,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f965c3d9838abcf489001876ac1379d5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,6 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2e4910c314960d4c8c64cf3b6cf0c3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particles_col: {fileID: 1000011190285628, guid: beb3acff7ab73944fb8f470f24d74ed3,
+    type: 2}
 --- !u!135 &135527115036442298
 SphereCollider:
   m_ObjectHideFlags: 1

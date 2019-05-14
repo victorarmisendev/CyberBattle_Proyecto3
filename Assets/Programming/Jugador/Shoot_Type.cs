@@ -61,6 +61,7 @@ public class Shoot_Type : MonoBehaviour {
             Instantiate(particles_shoot[0], transform.position + transform.forward, Quaternion.identity);
             copy.GetComponent<Rigidbody>().AddForce(personaje.transform.forward * 50.0f, ForceMode.Impulse);
             copy.GetComponent<Rigidbody>().AddForce(Vector3.up * 50.0f, ForceMode.Impulse);
+            copy.GetComponent<Renderer>().material.color = Color.black;
             copy.gameObject.tag = "Vacio";
 
 
@@ -96,6 +97,7 @@ public class Shoot_Type : MonoBehaviour {
             Instantiate(particles_shoot[1], transform.position + transform.forward, Quaternion.identity);
             copy.GetComponent<Rigidbody>().AddForce(personaje.transform.forward * 50.0f, ForceMode.Impulse);
             copy.GetComponent<Rigidbody>().AddForce(Vector3.up * 50.0f, ForceMode.Impulse);
+            copy.GetComponent<Renderer>().material.color = Color.red;
             copy.gameObject.tag = "Fuego";
 
 
@@ -135,6 +137,7 @@ public class Shoot_Type : MonoBehaviour {
             Instantiate(particles_shoot[2], transform.position + transform.forward, Quaternion.identity);
             copy.GetComponent<Rigidbody>().AddForce(personaje.transform.forward * 50.0f, ForceMode.Impulse);
             copy.GetComponent<Rigidbody>().AddForce(Vector3.up * 50.0f, ForceMode.Impulse);
+            copy.GetComponent<Renderer>().material.color = Color.green;
             copy.gameObject.tag = "Planta";
 
             //RaycastHit hit;
@@ -174,6 +177,7 @@ public class Shoot_Type : MonoBehaviour {
             Instantiate(particles_shoot[3], transform.position + transform.forward, Quaternion.identity);
             copy.GetComponent<Rigidbody>().AddForce(personaje.transform.forward * 50.0f, ForceMode.Impulse);
             copy.GetComponent<Rigidbody>().AddForce(Vector3.up * 50.0f, ForceMode.Impulse);
+            copy.GetComponent<Renderer>().material.color = Color.magenta;
             copy.gameObject.tag = "Bote";
 
             //RaycastHit hit;

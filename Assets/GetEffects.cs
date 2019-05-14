@@ -4,15 +4,7 @@ using UnityEngine;
 
 public class GetEffects : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public GameObject particle_shoot;
 
     void OnTriggerEnter(Collider col)
     {
@@ -39,6 +31,11 @@ public class GetEffects : MonoBehaviour {
         {
             gameObject.AddComponent<VacioCom>();
             gameObject.GetComponent<Renderer>().material.color = Color.black;
+        }
+
+        if(col.gameObject.tag == "Bullet")
+        {      
+            Instantiate(particle_shoot, col.transform.position, Quaternion.identity);           
         }
 
     }
