@@ -126,10 +126,10 @@ public class Player_Stats : MonoBehaviour {
                     white_soils.Add(soils[i]);
                 }
             }
-            GameObject random = white_soils[Random.Range(0, white_soils.Capacity)];
-            
+            //GameObject random = white_soils[Random.Range(0, white_soils.Capacity)];
+            Vector3 random = new Vector3(Random.Range(-140, 140), 8, Random.Range(-140, 140));
             Vector3 offset = new Vector3(0, 2, 0);
-            transform.position = random.transform.position + offset;
+            transform.position = random + offset;
             
 
         }
