@@ -37,6 +37,8 @@ public class Empuje : MonoBehaviour {
     {
         if(col.gameObject.tag == "Player")
         {
+
+
             col.gameObject.GetComponent<Rigidbody>().AddForce(
                 gameObject.transform.forward * forceImpulse, ForceMode.Impulse);
         }
