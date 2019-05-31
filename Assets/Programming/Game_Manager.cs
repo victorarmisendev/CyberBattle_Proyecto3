@@ -32,6 +32,8 @@ public class Game_Manager : MonoBehaviour {
 
     public Text points1, points2;
 
+    public static GameObject[] p = new GameObject[2]; // Ahora lo ponemos de dos, seran 4 jugadores.
+
     private void Start()
     {
 

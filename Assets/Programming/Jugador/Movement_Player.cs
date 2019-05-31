@@ -237,7 +237,7 @@ public class Movement_Player : MonoBehaviour {
         if(CONTROLLER)
         {
             //Debug.Log(inputs[4]);
-            Debug.Log(jump_);
+            //Debug.Log(jump_);
             if (Input.GetButtonDown(inputs[4]) && jump_)
                 this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, JumpForce, 0));
         }

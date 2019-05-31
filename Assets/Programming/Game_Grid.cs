@@ -82,25 +82,27 @@ public class Game_Grid : MonoBehaviour {
 
         //gameObject.transform.Translate(Vector3.up * -1);
 
-        if(!FlagTime && !DieMode)
-        {
-            GameObject[] cubes = GameObject.FindGameObjectsWithTag("Soil");
+        //Building grid
 
-            for (int i = 0; i < cubes.Length; i++)
-            {
-                int ran1 = Random.Range(0, 10);
-                int ran2 = Random.Range(0, 10);
+        //if(!FlagTime && !DieMode)
+        //{
+        //    GameObject[] cubes = GameObject.FindGameObjectsWithTag("Soil");
 
-                if (ran1 == ran2)
-                {
-                    if (ran1 < 3)
-                        Instantiate(jump_it, cubes[i].transform.position + new Vector3(0, 3, 0), jump_it.transform.rotation);
-                    if (ran1 > 3)
-                        Instantiate(column, cubes[i].transform.position + new Vector3(0, 8, 0), column.transform.rotation);
-                }
+        //    for (int i = 0; i < cubes.Length; i++)
+        //    {
+        //        int ran1 = Random.Range(0, 10);
+        //        int ran2 = Random.Range(0, 10);
 
-            }
-        }
+        //        if (ran1 == ran2)
+        //        {
+        //            if (ran1 < 3)
+        //                Instantiate(jump_it, cubes[i].transform.position + new Vector3(0, 3, 0), jump_it.transform.rotation);
+        //            if (ran1 > 3)
+        //                Instantiate(column, cubes[i].transform.position + new Vector3(0, 8, 0), column.transform.rotation);
+        //        }
+
+        //    }
+        //}
 
         
 

@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour {
 
 
     public GameObject particles_col;
-
+    
     void Start()
     {
         StartCoroutine(init(0.5f));
