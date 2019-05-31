@@ -82,6 +82,69 @@ public class Movement_Player : MonoBehaviour {
             //Debug.Log(Joy_Right_X);
             //Debug.Log(Joy_Right_Y);
 
+            //Construccion: Build
+
+            //Construccion en si mismo
+            if (Input.GetButtonDown(this.GetComponent<Movement_Player>().inputs[6]))
+            {
+                RaycastHit hit;
+
+                if(Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.up), out hit, 100))
+                {
+                    hit.collider.gameObject.transform.localScale += new Vector3(0, hit.collider.gameObject.transform.localScale.z, 0);
+                }
+           
+            }
+
+            //Construcciones en 4 direcciones
+            if (Input.GetButtonDown(this.GetComponent<Movement_Player>().inputs[6]) && v_controller > 0.0f)
+            {
+                RaycastHit hit;
+
+                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 100))
+                {
+                    //Clamp altura
+                    hit.collider.gameObject.transform.localScale = new Vector3(Mathf.Clamp(hit.collider.gameObject.transform.localScale.x, 0, 15),
+                        Mathf.Clamp(hit.collider.gameObject.transform.localScale.y, 0, 15), Mathf.Clamp(hit.collider.gameObject.transform.localScale.z, 0, 15));
+
+                    //Instantiate particles: Cubo aumentado o disminuido y un rayo para que se vea la direccion.
+                    //Instantiate(ray, transform.position, direccion_deseada);
+                    //Instantiate(particles_magic_construccion, hit.collider.gameObject.transform.position, Quaternion.identity);
+
+                    //Augmentar para construccion
+                    hit.collider.gameObject.transform.localScale += new Vector3(0, hit.collider.gameObject.transform.localScale.z, 0);
+                }
+
+            }
+            if (Input.GetButtonDown(this.GetComponent<Movement_Player>().inputs[6]) && v_controller < 0.0f)
+            {
+                RaycastHit hit;
+
+                if (Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.forward), out hit, 100))
+                {
+                    hit.collider.gameObject.transform.localScale += new Vector3(0, hit.collider.gameObject.transform.localScale.z, 0);
+                }
+
+            }
+            if (Input.GetButtonDown(this.GetComponent<Movement_Player>().inputs[6]) && h_controller > 0.0f)
+            {
+                RaycastHit hit;
+
+                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), out hit, 100))
+                {
+                    hit.collider.gameObject.transform.localScale += new Vector3(0, hit.collider.gameObject.transform.localScale.z, 0);
+                }
+            } 
+            if (Input.GetButtonDown(this.GetComponent<Movement_Player>().inputs[6]) && h_controller < 0.0f)
+            {
+                RaycastHit hit;
+
+                if (Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.right), out hit, 100))
+                {
+                    hit.collider.gameObject.transform.localScale += new Vector3(0, hit.collider.gameObject.transform.localScale.z, 0);
+                }
+            }
+
             if (Joy_Right_Y > 0)
             {
                 iz = false;
@@ -113,9 +176,7 @@ public class Movement_Player : MonoBehaviour {
                 arriba = false;
                 abajo = true;
             }
-
-            
-
+       
             if (iz)
                 personaje.transform.eulerAngles = new Vector3(0, -90, 0);
             if (de)
@@ -125,21 +186,11 @@ public class Movement_Player : MonoBehaviour {
             if (abajo)
                 personaje.transform.eulerAngles = new Vector3(0, 0, 0);
 
-
-
             JumpPlayer(jumpForce);
-
-            //transform.Translate(h_controller * speed_player, 0, -v_controller * speed_player);
-
 
             transform.position += new Vector3(h_controller * speed_player, 0, -v_controller * speed_player);
 
-            //if (v_controller < 0)
-            //{
-            //    transform.Translate(0, 0, -v_controller * speed_player);
-            //}
-
-        }
+          }
 
         if(!CONTROLLER)
         {
@@ -172,26 +223,12 @@ public class Movement_Player : MonoBehaviour {
 
             camera_player.transform.localRotation = I_Cam * xAxis;
 
-            //camera_player.fieldOfView = 60;
-
             JumpPlayer(jumpForce);
 
             Sprint();
 
-            //Dash(25);
-
-        }
-        
-        
-        
-
-        //Crouch();
-
-        //originalPosCamera = transform.position;
-
-        //GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationZ;
-
-        //Debug.Log(Input.GetAxis("Mouse X"));
+        }       
+   
 
     }
 
@@ -233,16 +270,6 @@ public class Movement_Player : MonoBehaviour {
     //    } 
 
 
-    //}
-
-    //void Crouch()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.LeftControl))
-    //        camera_player.transform.position = camera_player.transform.position - new Vector3(0, 2, 0); 
-    //    else
-    //        camera_player.transform.position = camera_player.transform.position + new Vector3(0, 2, 0);
-    //}
-
     public static float ClampAngle(float angle, float min, float max)
     {
         angle = angle % 360;
@@ -266,7 +293,11 @@ public class Movement_Player : MonoBehaviour {
         if(col.gameObject.tag == "Soil")
         {
             jump_ = true;
-        } 
+
+            
+
+
+        }
     }
 
 

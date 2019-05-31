@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ExampleGameController : MonoBehaviour
 {
-    public CameraMultiTarget cameraMultiTarget;
+    //public CameraMultiTarget cameraMultiTarget;
     public GameObject [] targetPrefab;
 
     //private IEnumerator Start() {
