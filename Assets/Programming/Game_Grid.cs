@@ -6,37 +6,33 @@ public class Game_Grid : MonoBehaviour {
 
     public GameObject soil;
     public GameObject gameMap;
-    public Vector2 size;
-    public float nodeRadius;
-    private float NodeDiameter;
-    public LayerMask unwalkable;
-    public Vector3 mainRotation;
-    public static Vector2 SIZEGLOBAL;
-    public static float NODEDIAM;
-    public string notfloor;
-    //private int rows, columns;
-    //public Vector2 size;
-    //public float nodeDiameter,nodeDIAM;
     public GameObject jump_it;
     public GameObject column;
-
-    public List<GameObject> cubos = new List<GameObject>();
     public GameObject[,] cubos_matrix;
+    public float[,] alturas_a_restar;
+    public List<GameObject> cubos = new List<GameObject>();
 
+    public Vector3 mainRotation;
+    public Vector2 size;
+    public static Vector2 SIZEGLOBAL;
+
+    public float nodeRadius;
+    private float NodeDiameter;
+    public static float NODEDIAM;
+
+    public LayerMask unwalkable;
+
+    public string notfloor;
     public bool FlagTime, DieMode;
+
+    public static Vector3 POS;
 
     void Start ()
     {
-        //Vector3 bounds = gameMap.transform.localScale;
-        //nodeDIAM = nodeDiameter * 2;
-        //int SizeX = Mathf.RoundToInt(size.x / (nodeDIAM));
-        //int SizeZ = Mathf.RoundToInt(size.y / (nodeDIAM));
 
         SIZEGLOBAL = size;
         
-        //Vector3 esquina = transform.position - Vector3.right * (bounds.x / 2) - Vector3.forward * (bounds.z / 2);
         NodeDiameter = nodeRadius * 2;
-
         NODEDIAM = NodeDiameter;
 
         soil.transform.localScale = new Vector3(NodeDiameter, 10, NodeDiameter);
@@ -44,25 +40,25 @@ public class Game_Grid : MonoBehaviour {
         Vector3 esquina = transform.position - Vector3.right * (size.x / 2) - Vector3.forward * (size.y / 2);
         Vector3 correction = new Vector3(nodeRadius, 0, nodeRadius);
 
-        //Instantiate(soil, esquina + correction, Quaternion.identity);
-        //Instantiate(soil, esquina + correction + new Vector3(0,0,NodeDiameter * 1.1f), Quaternion.identity);
-
         int rows = Mathf.RoundToInt(size.x / NodeDiameter);
         int columns = Mathf.RoundToInt(size.y / NodeDiameter);
 
         cubos_matrix = new GameObject[rows, columns];
 
-        //Debug.Log(rows);
-        //Debug.Log(columns);
-
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < columns; j++)
             {
-                Vector3 POS = (esquina + correction) + new Vector3(i * NodeDiameter * 1.02f, 0,
+                POS = (esquina + correction) + new Vector3(i * NodeDiameter * 1.02f, 0,
                     j * NodeDiameter * 1.02f);
-                GameObject cube = Instantiate(soil, POS, Quaternion.identity) as GameObject;
-                
+
+                float altura_inicial = Random.Range(100, 200);
+
+                GameObject cube = Instantiate(soil, POS + Vector3.up * altura_inicial, Quaternion.identity) as GameObject;
+
+                //alturas_a_restar[i, j] = altura_inicial;
+                cube.AddComponent<Entrada_Cubos>();
+
                 cube.gameObject.tag = "Soil";
                 cube.transform.parent = gameObject.transform;
 
@@ -80,31 +76,31 @@ public class Game_Grid : MonoBehaviour {
             }
         }
 
-        //gameObject.transform.Translate(Vector3.up * -1);
+        /*   
+        gameObject.transform.Translate(Vector3.up * -1);
 
-        //Building grid
+        Building grid
 
-        //if(!FlagTime && !DieMode)
-        //{
-        //    GameObject[] cubes = GameObject.FindGameObjectsWithTag("Soil");
+        if(!FlagTime && !DieMode)
+        {
+            GameObject[] cubes = GameObject.FindGameObjectsWithTag("Soil");
 
-        //    for (int i = 0; i < cubes.Length; i++)
-        //    {
-        //        int ran1 = Random.Range(0, 10);
-        //        int ran2 = Random.Range(0, 10);
+            for (int i = 0; i < cubes.Length; i++)
+            {
+                int ran1 = Random.Range(0, 10);
+                int ran2 = Random.Range(0, 10);
 
-        //        if (ran1 == ran2)
-        //        {
-        //            if (ran1 < 3)
-        //                Instantiate(jump_it, cubes[i].transform.position + new Vector3(0, 3, 0), jump_it.transform.rotation);
-        //            if (ran1 > 3)
-        //                Instantiate(column, cubes[i].transform.position + new Vector3(0, 8, 0), column.transform.rotation);
-        //        }
+                if (ran1 == ran2)
+                {
+                    if (ran1 < 3)
+                        Instantiate(jump_it, cubes[i].transform.position + new Vector3(0, 3, 0), jump_it.transform.rotation);
+                    if (ran1 > 3)
+                        Instantiate(column, cubes[i].transform.position + new Vector3(0, 8, 0), column.transform.rotation);
+                }
 
-        //    }
-        //}
-
-        
+            }
+        }
+        */
 
 
     }

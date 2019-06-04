@@ -7,16 +7,35 @@ public class Cycle_Map : MonoBehaviour {
     public GameObject[] points;
     private int counter = 0;
     public Camera cam;
-    float timeCount2 = 0.0f;
-	
-	void Update ()
+    float timeCount2 = 0.0f; 
+    private bool start = true;
+
+	public Transform start_position;
+    public Transform initial_rotation, final_rotation;
+
+    private float timeCount = 0.0f;
+
+
+
+    void Update ()
     {
-
-        //Debug.Log("Point 0: " + points[counter].transform.position);
-
+    
         Game_Cycle(counter);
-        
-        if(Game_Manager.p.Length <= 1)
+
+        if (start)
+        {
+            cam.transform.rotation = Quaternion.Slerp(initial_rotation.transform.rotation,
+                final_rotation.transform.rotation, timeCount);
+
+            timeCount = timeCount + Time.deltaTime * 0.6f;
+
+            if (Vector3.Distance(cam.transform.position, points[0].transform.position) <= 0.1f)
+            {
+                start = false;
+            }
+        }
+
+        if (Game_Manager.p.Length <= 1)
         {
             Destroy(this);
         }
@@ -24,13 +43,13 @@ public class Cycle_Map : MonoBehaviour {
         if(Vector3.Distance(cam.transform.position, points[counter].transform.position) <= 0.1f)
         {
             counter++;
-            //Debug.Log(counter);
         }
 
         if(counter == points.Length)
         {
             counter = 0;
         }
+        
 
 
 
@@ -39,6 +58,9 @@ public class Cycle_Map : MonoBehaviour {
     void Game_Cycle(int counter)
     {
         float step = 45.0f * Time.deltaTime; // calculate distance to move    
-        cam.transform.position = Vector3.MoveTowards(cam.transform.position, points[counter].transform.position, step);      
+        cam.transform.position = Vector3.MoveTowards(cam.transform.position, points[counter].transform.position, step);  
+        
+        
+
     }
 }
