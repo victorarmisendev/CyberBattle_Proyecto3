@@ -15,6 +15,7 @@ TagManager:
   - Planta
   - Vacio
   - Bullet
+  - StartPos_Cubos
   layers:
   - Default
   - TransparentFX

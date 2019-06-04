@@ -27,6 +27,8 @@ public class Game_Grid : MonoBehaviour {
 
     public static Vector3 POS;
 
+    private int rows, columns;
+
     void Start ()
     {
 
@@ -40,8 +42,8 @@ public class Game_Grid : MonoBehaviour {
         Vector3 esquina = transform.position - Vector3.right * (size.x / 2) - Vector3.forward * (size.y / 2);
         Vector3 correction = new Vector3(nodeRadius, 0, nodeRadius);
 
-        int rows = Mathf.RoundToInt(size.x / NodeDiameter);
-        int columns = Mathf.RoundToInt(size.y / NodeDiameter);
+        rows = Mathf.RoundToInt(size.x / NodeDiameter);
+        columns = Mathf.RoundToInt(size.y / NodeDiameter);
 
         cubos_matrix = new GameObject[rows, columns];
 
@@ -57,7 +59,7 @@ public class Game_Grid : MonoBehaviour {
                 GameObject cube = Instantiate(soil, POS + Vector3.up * altura_inicial, Quaternion.identity) as GameObject;
 
                 //alturas_a_restar[i, j] = altura_inicial;
-                cube.AddComponent<Entrada_Cubos>();
+                //cube.AddComponent<Entrada_Cubos>();
 
                 cube.gameObject.tag = "Soil";
                 cube.transform.parent = gameObject.transform;
@@ -104,5 +106,21 @@ public class Game_Grid : MonoBehaviour {
 
 
     }
+
+    void Update()
+    {
+
+        for (int i = 0; i < rows; i++)
+        {
+            if(cubos[i].transform.position.y >= 0)
+                cubos[i].transform.position -= Vector3.up * Time.deltaTime;
+        }
+
+
+
+
+    }
+
+
 
 }
