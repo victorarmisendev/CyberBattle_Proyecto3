@@ -32,6 +32,8 @@ public class Game_Manager : MonoBehaviour {
 
     public Text points1, points2;
 
+    public float speed_bajar;
+
     public static GameObject[] p = new GameObject[2]; // Ahora lo ponemos de dos, seran 4 jugadores.
 
     private void Start()
@@ -191,14 +193,23 @@ public class Game_Manager : MonoBehaviour {
                 SceneManager.LoadScene(5);
 
             }
-            
-                
-            
+
+
+            //Cubos Entrada
+            for (int i = 0; i < Grid_Cube.Capacity; i++)
+            {
+                if (Grid_Cube[i].transform.position.y >= 0)
+                    Grid_Cube[i].transform.position -= Vector3.up * speed_bajar * Time.deltaTime;
+            }
+
+
+
+
 
 
         }
 
- 
+
     }
 
 }

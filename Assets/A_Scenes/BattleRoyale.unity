@@ -4577,6 +4577,7 @@ MonoBehaviour:
     type: 2}
   points1: {fileID: 1210989378}
   points2: {fileID: 2026058986}
+  speed_bajar: 20
 --- !u!4 &1427625980
 Transform:
   m_ObjectHideFlags: 0

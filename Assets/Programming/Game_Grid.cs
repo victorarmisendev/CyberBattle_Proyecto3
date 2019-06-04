@@ -107,20 +107,6 @@ public class Game_Grid : MonoBehaviour {
 
     }
 
-    void Update()
-    {
-
-        for (int i = 0; i < rows; i++)
-        {
-            if(cubos[i].transform.position.y >= 0)
-                cubos[i].transform.position -= Vector3.up * Time.deltaTime;
-        }
-
-
-
-
-    }
-
 
 
 }
