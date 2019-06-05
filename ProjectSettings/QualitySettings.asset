@@ -183,8 +183,8 @@ QualitySettings:
     shadowResolution: 2
     shadowProjection: 1
     shadowCascades: 4
-    shadowDistance: 574.55
-    shadowNearPlaneOffset: 2
+    shadowDistance: 709.8
+    shadowNearPlaneOffset: 4.06
     shadowCascade2Split: 0.33333334
     shadowCascade4Split: {x: 0.06666667, y: 0.19999999, z: 0.46666664}
     shadowmaskMode: 1
@@ -212,5 +212,5 @@ QualitySettings:
     excludedTargetPlatforms: []
   m_PerPlatformDefaultQuality:
     Android: 0
-    Standalone: 0
+    Standalone: 5
     WebGL: 0

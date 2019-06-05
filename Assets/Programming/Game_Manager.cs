@@ -36,6 +36,8 @@ public class Game_Manager : MonoBehaviour {
 
     public static GameObject[] p = new GameObject[2]; // Ahora lo ponemos de dos, seran 4 jugadores.
 
+    float acceleration = 0.0f;
+
     private void Start()
     {
 
@@ -60,6 +62,8 @@ public class Game_Manager : MonoBehaviour {
         //    Debug.Log(flagPosition + "Hello");
         //    Instantiate(flag, flagPosition, Quaternion.identity);
         //}
+
+        GameObject.FindGameObjectWithTag("MainCamera").AddComponent<CameraShake>();
 
         name_winner = "";
 
@@ -120,6 +124,19 @@ public class Game_Manager : MonoBehaviour {
 
         if (counter < 4)
         {
+            for (int i = 0; i < Grid_Cube.Capacity; i++)
+            {
+                if (Grid_Cube[i].transform.position.y > 0)
+                {
+
+                    Grid_Cube[i].transform.position -= (((Vector3.up * speed_bajar)) * Time.deltaTime);                 
+                } 
+
+            }
+
+            //speed_bajar += 2;
+
+
             timerBegin -= Time.deltaTime;
             if (timerBegin > 0.0f)
             {
@@ -134,11 +151,16 @@ public class Game_Manager : MonoBehaviour {
         else
         {
             gameBegins = true;
+            
             text.text = "";
         }
       
         if (gameBegins)
         {
+
+            //Cubos Entrada        
+            
+
             timer -= Time.deltaTime;
 
             if(FlagTime_Mode == false)
@@ -182,25 +204,20 @@ public class Game_Manager : MonoBehaviour {
 
             
 
-            if(p.Length == 1)
-            {
-                Debug.Log(p[0].name);
-                //Finish the match
-                //Go the ranking scene
-                //Go to the winner scene
-                name_winner = p[0].name;
-                p[0].GetComponent<Player_Stats>().points += 1000.0f;
-                SceneManager.LoadScene(5);
+            //if(p.Length == 1)
+            //{
+            //    Debug.Log(p[0].name);
+            //    //Finish the match
+            //    //Go the ranking scene
+            //    //Go to the winner scene
+            //    name_winner = p[0].name;
+            //    p[0].GetComponent<Player_Stats>().points += 1000.0f;
+            //    SceneManager.LoadScene(5);
 
-            }
+            //}
 
 
-            //Cubos Entrada
-            for (int i = 0; i < Grid_Cube.Capacity; i++)
-            {
-                if (Grid_Cube[i].transform.position.y >= 0)
-                    Grid_Cube[i].transform.position -= Vector3.up * speed_bajar * Time.deltaTime;
-            }
+            
 
 
 

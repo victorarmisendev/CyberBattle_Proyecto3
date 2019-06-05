@@ -28,7 +28,7 @@ public class Cube_Limits : MonoBehaviour {
 
         if (col.gameObject.tag == "Player")
         {
-            Debug.Log(col.name + "Estoy dentro!");
+            //Debug.Log(col.name + "Estoy dentro!");
         }
     }
 

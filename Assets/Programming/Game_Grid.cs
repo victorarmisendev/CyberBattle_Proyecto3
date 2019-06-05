@@ -51,8 +51,8 @@ public class Game_Grid : MonoBehaviour {
         {
             for (int j = 0; j < columns; j++)
             {
-                POS = (esquina + correction) + new Vector3(i * NodeDiameter * 1.02f, 0,
-                    j * NodeDiameter * 1.02f);
+                POS = (esquina + correction) + new Vector3(i * NodeDiameter * 1.00f, 0,
+                    j * NodeDiameter * 1.00f);
 
                 float altura_inicial = Random.Range(100, 200);
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player_Stats : MonoBehaviour {
 
@@ -108,6 +109,19 @@ public class Player_Stats : MonoBehaviour {
     {
         numberOfLives--;
         this.live = 100;
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if(col.gameObject.tag == "Bandera")
+        {
+            points += 5000;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                //MIRAR LOADSCENE ASINCRON PARA CARGAR LA PANTALLA
+                //DE PUNTUACION SIN TENER QUE PASAR LOS VALORES A LA SIGUIENTE ESCENA
+                //AUNQUE LO PODEMOS HACER POR ESTATICOS PERFECTAMENTE
+
+        }
     }
 
     void OnTriggerExit(Collider col)

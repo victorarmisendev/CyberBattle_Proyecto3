@@ -29,7 +29,7 @@ MonoBehaviour:
     m_Settings:
       excludeSkybox: 1
   antialiasing:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       method: 0
       fxaaSettings:
@@ -71,10 +71,10 @@ MonoBehaviour:
   depthOfField:
     m_Enabled: 0
     m_Settings:
-      focusDistance: 0.53
+      focusDistance: 0.1
       aperture: 5.1
       focalLength: 10
-      useCameraFov: 1
+      useCameraFov: 0
       kernelSize: 3
   motionBlur:
     m_Enabled: 0
@@ -308,7 +308,7 @@ MonoBehaviour:
     m_Enabled: 1
     m_Settings:
       spectralTexture: {fileID: 0}
-      intensity: 0.265
+      intensity: 0.595
   grain:
     m_Enabled: 0
     m_Settings:
@@ -317,12 +317,12 @@ MonoBehaviour:
       size: 0.3
       luminanceContribution: 0.677
   vignette:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       mode: 0
       color: {r: 1, g: 1, b: 1, a: 1}
       center: {x: 0.5, y: 0.5}
-      intensity: 0.539
+      intensity: 1
       smoothness: 0.579
       roundness: 0.461
       mask: {fileID: 0}
